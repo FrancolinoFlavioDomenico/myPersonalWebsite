@@ -43,3 +43,5 @@ Thumbs.db
 
 #data
 /src/assets/cvData.json
+/nodeServer/dataFile/cvData.json
+
