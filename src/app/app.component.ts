@@ -9,6 +9,10 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
   title = 'myPersonalWebsite';
+;
+  qualifica1 = "laureando in informatica";
+  qualifica2 = "perito informatico";
+  qualifica = this.qualifica1;
 
   private _cvData: any;
   headerData!: object;
@@ -17,14 +21,29 @@ export class AppComponent {
 
   constructor(private httpClient: HttpClient) { }
 
+
+
   ngOnInit() {
     //this._cvData = this.getCvData();
     //this.headerData = this._cvData.headerData;
     //console.log(this.headerData);
     this.getCvData();
     console.log(this._cvData);
+    this.changeQualification();
   }
 
+  changeQualification() {
+
+    setInterval(()=>
+      {if (this.qualifica === this.qualifica1)
+        this.qualifica = this.qualifica2;
+      else
+        this.qualifica = this.qualifica2;
+    }, 1000);
+
+
+    return this.qualifica;
+  }
 
   /**
    * ottengo il file con i dati del cv

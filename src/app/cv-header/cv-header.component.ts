@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-cv-header',
@@ -8,6 +8,8 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class CvHeaderComponent implements OnInit {
 
+
+  @Input() qualifica = '';
   constructor() { }
 
   ngOnInit(): void {
