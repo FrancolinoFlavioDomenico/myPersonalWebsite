@@ -1,9 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-right-column',
   templateUrl: './right-column.component.html',
-  styleUrls: ['./right-column.component.sass']
+  styleUrls: ['./right-column.component.sass'],
+  encapsulation: ViewEncapsulation.Emulated
 })
 export class RightColumnComponent implements OnInit {
 

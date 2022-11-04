@@ -15,4 +15,8 @@ export class CvHeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  ngOnChanges(): void{
+
+  }
+
 }

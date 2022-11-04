@@ -2,29 +2,43 @@
 @import './app/sassPartials/_variables'
 
 *
-    margin: 5em
+    margin: 0
     padding: 0
+
+
 .row
-    display: flex
-    flex-direction: row
+  display: flex
+  flex-direction: row
 
 .column
-    display: flex
-    flex-direction: column
-    
+  display: flex
+  flex-direction: column
+
 html
-    height: 100vh
-    width: 100vw
-    display: flex
-    flex-direction: column
+  height: 100vh
+  width: 100vw
+  display: flex
+  flex-direction: column
+  justify-content: stretch
+  align-items: stretch
+
 
 body
-    width: 100%
-    height: 100%
-    display: flex
-    flex-direction: column
+  height: 100%
+  display: flex
+  flex-direction: column
+  justify-content: stretch
+  align-items: stretch
+  align-content: stretch
 
+app-root
+  height: 100%
+  position: relative
+  display: flex
+  flex-direction: column
+  align-items: stretch
+  align-content: stretch
 
 :host
-    background: green
-    border: 2px solid yellow
+  background: green
+  border: 2px solid yellow
