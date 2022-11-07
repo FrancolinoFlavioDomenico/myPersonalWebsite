@@ -8,7 +8,7 @@ import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class RightColumnComponent implements OnInit {
 
-  @Input() qualifica = '';
+  @Input() qualification = '';
   constructor() { }
 
   ngOnInit(): void {

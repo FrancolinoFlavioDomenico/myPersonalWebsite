@@ -9,10 +9,10 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
   title = 'myPersonalWebsite';
-;
-  qualifica1 = "laureando in informatica";
-  qualifica2 = "perito informatico";
-  qualifica = this.qualifica1;
+
+  qualification1 = "laureando in informatica";
+  qualification2 = "perito informatico";
+  qualification = this.qualification1;
 
   private _cvData: any;
   headerData!: object;
@@ -27,22 +27,24 @@ export class AppComponent {
     //this._cvData = this.getCvData();
     //this.headerData = this._cvData.headerData;
     //console.log(this.headerData);
-    this.getCvData();
-    console.log(this._cvData);
+    //this.getCvData();
+    //console.log(this._cvData);
     this.changeQualification();
   }
 
-  changeQualification() {
+  changeQualification(): void {
 
-    setInterval(()=>
-      {if (this.qualifica === this.qualifica1)
-        this.qualifica = this.qualifica2;
+    let counter = 0;
+
+    setInterval(() => {
+      if (counter % 2 == 0)
+        this.qualification = this.qualification2;
       else
-        this.qualifica = this.qualifica2;
-    }, 1000);
+        this.qualification = this.qualification1;
 
+      counter++;
+    }, 5000);
 
-    return this.qualifica;
   }
 
   /**
