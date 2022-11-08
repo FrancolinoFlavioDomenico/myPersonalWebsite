@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 
-@Injectable()
+@Injectable({
+  providedIn:'root'
+})
 export class LeftColumnData {
 
   private _profileSection = {
@@ -28,10 +30,6 @@ export class LeftColumnData {
 
 
   constructor() { }
-
-  public static getAllData(){
-    return new LeftColumnData();
-  }
 
   public get profileSection() {
     return this._profileSection;

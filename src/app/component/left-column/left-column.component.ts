@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewEncapsulation } from '@angular/core';
-import { LeftColumnDataService } from 'src/app/service/cv-data-management/left-column-data-provider.service';
+import { LeftColumnDataService } from 'src/app/services/cv-data-management/left-column-data-provider.service';
+
 
 @Component({
   selector: 'app-left-column',
@@ -9,17 +10,14 @@ import { LeftColumnDataService } from 'src/app/service/cv-data-management/left-c
 })
 export class LeftColumnComponent implements OnInit {
 
-  contactSession!: Object;
-
-
-
-  constructor(public _leftColumnDataProvider: LeftColumnDataService) {  }
+  constructor(private _leftColumnDataProvider: LeftColumnDataService) { }
 
   ngOnInit(): void {
 
-this.contactSession =this._leftColumnDataProvider.getLeftColumnData().contactSection.body;
+    //this.contactSession =this._leftColumnDataProvider.getLeftColumnData().contactSection.body;
+    //console.log(this._test.contactSection);
 
-    //console.log();
+    console.log(this._leftColumnDataProvider.getLeftColumnData().contactSection);
   }
 
 }

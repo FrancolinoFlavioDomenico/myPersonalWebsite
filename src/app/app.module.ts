@@ -3,22 +3,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { CvHeaderComponent } from './component/cv-header/cv-header.component';
-import { LeftColumnComponent } from './component/left-column/left-column.component';
-import { RightColumnComponent } from './component/right-column/right-column.component';
+import { ComponentModule } from './component/component.module'
+import { ServicesModule } from './services/services.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    CvHeaderComponent,
-    LeftColumnComponent,
-    RightColumnComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
-  ],
-  providers: [],
+    HttpClientModule,
+    ComponentModule,
+    ServicesModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
