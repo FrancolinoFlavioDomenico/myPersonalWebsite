@@ -6,7 +6,7 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges, ViewEncapsulation }
   styleUrls: ['./cv-header.component.sass'],
   encapsulation: ViewEncapsulation.Emulated
 })
-export class CvHeaderComponent implements OnInit, OnChanges {
+export class CvHeaderComponent implements OnInit {
 
 
   @Input() qualification = '';
@@ -15,14 +15,5 @@ export class CvHeaderComponent implements OnInit, OnChanges {
   ngOnInit(): void {
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(`the changes ara`);
-    console.log(changes);
-
-    if(this.qualification == changes.qualification.previousValue){
-      this.qualification = changes.qualification.currentValue;
-     // console.log(this.qualification);
-    }
-  }
 
 }

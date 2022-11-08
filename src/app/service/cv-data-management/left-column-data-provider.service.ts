@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
-import { LeftColumnDataObjectService } from './left-column-data-object.service';
+import { LeftColumnData } from './left-column-data';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class LeftColumnDataProviderService {
+export class LeftColumnDataService {
 
 
-  constructor(private _leftColumnDataObject: LeftColumnDataObjectService) {}
+  constructor() {}
 
-  public get leftColumnDataObject (){
-    return this._leftColumnDataObject;
+  public getLeftColumnData (){
+    console.log("servie column left : "+ LeftColumnData);
+    return LeftColumnData.getAllData();
   }
 
 }

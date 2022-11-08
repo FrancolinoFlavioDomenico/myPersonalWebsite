@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class LeftColumnDataObjectService {
+@Injectable()
+export class LeftColumnData {
 
   private _profileSection = {
     "title": "Profilo",
@@ -19,7 +17,7 @@ export class LeftColumnDataObjectService {
 
 
 
-  private _contactSection = {
+  private _contactSection =  {
     "title": "Contatti",
     "body": [
       { "email": "franolinoflavio@gmail.com" },
@@ -30,6 +28,10 @@ export class LeftColumnDataObjectService {
 
 
   constructor() { }
+
+  public static getAllData(){
+    return new LeftColumnData();
+  }
 
   public get profileSection() {
     return this._profileSection;
