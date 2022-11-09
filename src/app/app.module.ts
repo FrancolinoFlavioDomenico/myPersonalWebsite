@@ -2,17 +2,19 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { ComponentModule } from './component/component.module'
+import { CurriculumComponentModule } from './curriculum-component/curriculum-component.module';
 import { ServicesModule } from './services/services.module';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
-    ComponentModule,
-    ServicesModule],
+    ServicesModule,
+    CurriculumComponentModule
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
