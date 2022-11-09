@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { LeftColumnDataService } from './cv-data-management/left-column-data-provider.service';
+import { CvDataServiceService as CvDataService} from './cv-data-management/cv-data-service.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
   declarations: [],
-  imports: [CommonModule],
-  providers: [LeftColumnDataService]
+  imports: [CommonModule, HttpClientModule],
+  providers: [CvDataService],
 })
 export class ServicesModule { }
