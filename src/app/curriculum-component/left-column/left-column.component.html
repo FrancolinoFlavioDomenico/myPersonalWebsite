@@ -1,28 +1,49 @@
 <div class="container column">
-
-
+  <ng-container *ngIf="data">
 
   <img src="https://png.pngtree.com/png-vector/20190710/ourlarge/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="">
 
+
   <section class="profile">
-    <h2>Profilo</h2>
-    <article>{{"test"}}
+    <h2>{{data.profileSection.title}} </h2>
+    <article>
+      {{data.profileSection.body}}
     </article>
   </section>
 
 
   <section class="interests">
-    <h2>profilo</h2>
-    <article>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit vitae reiciendis voluptatibus atque, eaque
-      neque, fugiat unde laborum natus veritatis mollitia totam, eum odio dolorum autem culpa aliquid quo veniam?
+    <h2>{{data.interestSection.title}}</h2>
+    <article>
+      <ul>
+        <li *ngFor="let item of data.interestSection.body">{{item}}</li>
+      </ul>
     </article>
   </section>
 
   <section class="contacts">
-    <h2>profilo</h2>
-    <article>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit vitae reiciendis voluptatibus atque, eaque
-      neque, fugiat unde laborum natus veritatis mollitia totam, eum odio dolorum autem culpa aliquid quo veniam?
+    <h2>{{data.contactSection.title}} </h2>
+    <article>
+     <ul>
+      <li *ngFor="let item of data.contactSection.body">
+        <ng-container *ngFor="let field of item | keyvalue">
+          {{field.key}}: {{field.value}}
+        </ng-container>
+      </li>
+     </ul>
     </article>
   </section>
+
+</ng-container>
+
+<!-- <ng-container *ngFor="let field of data | keyvalue">
+  <section class="{{field.key}}">
+    <h2>{{field.value | json}} </h2>
+    <ng-container *ngFor="let innerField of field | keyvalue">
+      {{innerField.value}}
+    </ng-container>
+
+  </section>
+</ng-container> -->
 
 </div>
