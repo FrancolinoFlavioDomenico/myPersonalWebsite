@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CvDataServiceService } from 'src/app/services/cv-data-management/cv-data-service.service';
+import { CvDataService } from 'src/app/services/cv-data-management/cv-data-service.service';
 
 @Component({
   selector: 'app-left-column',
@@ -8,13 +8,13 @@ import { CvDataServiceService } from 'src/app/services/cv-data-management/cv-dat
 })
 export class LeftColumnComponent implements OnInit {
 
-  constructor(private _cvData: CvDataServiceService) { }
+  constructor(private _cvData: CvDataService) { }
 
   ngOnInit(): void {
 
     //this.contactSession =this._leftColumnDataProvider.getLeftColumnData().contactSection.body;
     //console.log(this._test.contactSection);
-    this._cvData.getCvDataRequest()
+    console.log("i am component " + this._cvData.getCvData());
     //console.log();
   }
 }

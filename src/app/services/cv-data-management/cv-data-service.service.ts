@@ -1,48 +1,67 @@
-import { keyframes } from '@angular/animations';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { CvDataStructure } from 'src/app/objects-interfaces/cvData/cv-data-structure';
+import { map, Observable } from 'rxjs';
+
+import { CvDataStructureInterface } from './cvDataObjectsInterfaces/cv-data-structure-interface';
+import { LeftColumnData } from './cvDataObjectsInterfaces/left-column-data';
 
 @Injectable()
-export class CvDataServiceService {
+export class CvDataService {
 
-  private _cvData!: Object;
-
-  constructor(private httpClient: HttpClient) { }
-
-  //public getCvData:
-
-  /**
- * ottengo il json con i dati del cv
- */
-  public getCvDataRequest() {
-    /*fetch('http://localhost:4200/assets/cvData.json').then(res => res.json())
-      .then(jsonData => {
-        console.log(" getting data "+ JSON.stringify(jsonData));
-        //let obj = JSON.parse(jsonData)
-        //this.headerData = obj.headerData;
-        // this.headerData = object.headerData;
-      });*/
-
-    //da modificare recuperando il file dal server
-    //this._cvData =
-
-   this.httpClient.get("assets/cvData.json").subscribe(
-      (cvData: CvDataStructure) => {
-       console.log(cvData: CV);
-       return Promise.resolve();
-      })
-
-   console.log("cv data are" + this._cvData);
-
-    //     console.log(cvData);
-    //     return cvData
+  private _cvDataStructure!: CvDataStructureInterface;
+  public get cvDataStructure(): CvDataStructureInterface {
+    return this._cvDataStructure;
+  }
+  public set cvDataStructure(value: CvDataStructureInterface) {
+    this._cvDataStructure = value;
   }
 
+  constructor(private httpClient: HttpClient) {}
 
-  /*public get (): void{
-   // debugger;
-    //return this._cvData;
-    this.getCvData();
-  }*/
+
+  public async getCvData() {
+
+    /*this.getCvDataRequestSend().subscribe(
+    (cvData: CvDataStructureInterface) => {
+      this._cvDataStructure = cvData;
+      console.log("cv data in subscribe are " + this._cvDataStructure);}//ottengo un oggeto generico non ma se chiamo i songolo campi primitivi li stampa correttamente
+    );
+    console.log("cv data aftet subscribe are " + this._cvDataStructure);//ottengo undifined
+
+    return this._cvDataStructure;*/
+
+    /*this._cvDataStructure = await this.resolveCvDataObtain();
+    console.log("cv data after await are " + this._cvDataStructure);//ottengo un oggeto generico non ma se chiamo i songolo campi primitivi li stampa correttamente
+
+    return this._cvDataStructure;*/
+
+    this.resolveCvDataObtain().then((respone) => {
+      console.log("cv data in then block are " + respone);//ottengo un oggeto generico non ma se chiamo i songolo campi primitivi li stampa correttamente
+      this._cvDataStructure = respone;
+     })
+    console.log("cv data after then block are " + this._cvDataStructure);//ottengo undifined
+
+     return this._cvDataStructure;
+  }
+
+  private resolveCvDataObtain() {
+
+    return new Promise<CvDataStructureInterface>(
+      (resolve, rejected) => {
+        this.getCvDataRequestSend().subscribe(
+          (cvData: CvDataStructureInterface) => { resolve(cvData) }
+        )
+      }
+    )
+  }
+
+  /**
+  * ottengo il json con i dati del cv
+  */
+  private getCvDataRequestSend() {
+
+    return this.httpClient.get<CvDataStructureInterface>("assets/cvData.json");
+
+  }
+
 }

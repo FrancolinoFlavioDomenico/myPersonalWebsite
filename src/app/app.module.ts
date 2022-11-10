@@ -13,7 +13,7 @@ import { ServicesModule } from './services/services.module';
   imports: [
     BrowserModule,
     ServicesModule,
-    CurriculumComponentModule
+    CurriculumComponentModule,
   ],
   bootstrap: [AppComponent]
 })

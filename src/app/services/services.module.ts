@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { CvDataServiceService as CvDataService} from './cv-data-management/cv-data-service.service';
+import { CvDataService as CvDataService} from './cv-data-management/cv-data-service.service';
 import { HttpClientModule } from '@angular/common/http';
 
 
