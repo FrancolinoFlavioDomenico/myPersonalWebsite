@@ -1,4 +1,4 @@
-export interface LeftColumnData {
+export interface LeftColumnDataInterface {
 
   profileSection: ProfileSection;
   interestSection: InterestSection;

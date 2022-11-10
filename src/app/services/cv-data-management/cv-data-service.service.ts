@@ -2,24 +2,24 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 
-import { CvDataStructureInterface } from './cvDataObjectsInterfaces/cv-data-structure-interface';
-import { LeftColumnData } from './cvDataObjectsInterfaces/left-column-data';
+import { CvDataStructureInterface } from './cvDataObjectsInterfaces/cv-data-structure-interface.model';
+import { LeftColumnDataInterface } from './cvDataObjectsInterfaces/left-column-data-interface.model';
 
 @Injectable()
 export class CvDataService {
 
   private _cvDataStructure!: CvDataStructureInterface;
-  public get cvDataStructure(): CvDataStructureInterface {
-    return this._cvDataStructure;
-  }
-  public set cvDataStructure(value: CvDataStructureInterface) {
-    this._cvDataStructure = value;
-  }
 
   constructor(private httpClient: HttpClient) {}
 
+  public getCvDataStructure() {
 
-  public async getCvData() {
+    return this.httpClient.get<CvDataStructureInterface>("assets/cvData.json");
+
+  }
+
+
+  // public async getCvData() {
 
     /*this.getCvDataRequestSend().subscribe(
     (cvData: CvDataStructureInterface) => {
@@ -35,16 +35,16 @@ export class CvDataService {
 
     return this._cvDataStructure;*/
 
-    this.resolveCvDataObtain().then((respone) => {
+    /*this.resolveCvDataObtain().then((respone) => {
       console.log("cv data in then block are " + respone);//ottengo un oggeto generico non ma se chiamo i songolo campi primitivi li stampa correttamente
       this._cvDataStructure = respone;
      })
     console.log("cv data after then block are " + this._cvDataStructure);//ottengo undifined
 
-     return this._cvDataStructure;
-  }
+     return this._cvDataStructure;*/
+  // }
 
-  private resolveCvDataObtain() {
+  /* private resolveCvDataObtain() {
 
     return new Promise<CvDataStructureInterface>(
       (resolve, rejected) => {
@@ -53,15 +53,11 @@ export class CvDataService {
         )
       }
     )
-  }
+  } */
 
   /**
   * ottengo il json con i dati del cv
   */
-  private getCvDataRequestSend() {
 
-    return this.httpClient.get<CvDataStructureInterface>("assets/cvData.json");
-
-  }
 
 }
