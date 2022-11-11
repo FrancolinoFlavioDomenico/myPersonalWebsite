@@ -1,10 +1,11 @@
 <div class="container column">
   <ng-container *ngIf="data">
+    <img
+      src="https://png.pngtree.com/png-vector/20190710/ourlarge/pngtree-user-vector-avatar-png-image_1541962.jpg"
+      alt=""
+    />
 
-  <img src="https://png.pngtree.com/png-vector/20190710/ourlarge/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="">
-
-
-  <section class="profile">
+    <!-- <section class="profile">
     <h2>{{data.profileSection.title}} </h2>
     <article>
       {{data.profileSection.body}}
@@ -27,16 +28,39 @@
      <ul>
       <li *ngFor="let item of data.contactSection.body">
         <ng-container *ngFor="let field of item | keyvalue">
-          {{field.key}}: {{field.value}}
+          {{field.key}}: <ng-container {{fiel.key === "mail" ? i : noLinkItem}}>{{field.value}}</ng-container>
         </ng-container>
       </li>
      </ul>
     </article>
-  </section>
+  </section> -->
 
-</ng-container>
+    <ng-container *ngFor="let item of allSection">
+      <section class="{{ item.key }}">
+        <h2>{{ item.value.title }}</h2>
+        <article>
 
-<!-- <ng-container *ngFor="let field of data | keyvalue">
+          <ng-container *ngIf="!item.isArray, else arrayTemplate ">
+            {{ item.value.body}}
+          </ng-container>
+
+          <ng-template #arrayTemplate>
+            <ul >
+              <li  *ngFor="let item of item.value.body | keyvalue">
+
+                {{item.value | toString}}
+
+              </li>
+            </ul>
+          </ng-template>
+
+
+        </article>
+      </section>
+    </ng-container>
+  </ng-container>
+
+  <!-- <ng-container *ngFor="let field of data | keyvalue">
   <section class="{{field.key}}">
     <h2>{{field.value | json}} </h2>
     <ng-container *ngFor="let innerField of field | keyvalue">
@@ -45,5 +69,4 @@
 
   </section>
 </ng-container> -->
-
 </div>

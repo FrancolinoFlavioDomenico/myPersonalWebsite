@@ -5,15 +5,15 @@ export interface LeftColumnDataInterface {
   contactSection: ContactSection;
 }
 
-interface ProfileSection{
+export interface ProfileSection{
   title: string;
   body: string;
 }
-interface InterestSection{
+export interface InterestSection{
   title: string;
   body: string[];
 }
-interface ContactSection{
+export interface ContactSection{
   title: string;
-  body: Object[];
+  body: /* {key:string, value: string} */Object[];
 }

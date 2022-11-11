@@ -5,10 +5,10 @@ import { LeftColumnDataInterface } from '../services/cv-data-management/cvDataOb
 
 @Component({
   selector: 'app-general-view',
-  templateUrl: './general-view.component.html',
-  styleUrls: ['./general-view.component.sass']
+  templateUrl: './cv-general-view.component.html',
+  styleUrls: ['./cv-general-view.component.sass']
 })
-export class GeneralViewComponent implements OnInit {
+export class CvGeneralViewComponent implements OnInit {
 
   qualification1 = "laureando in informatica";
   qualification2 = "perito informatico";
