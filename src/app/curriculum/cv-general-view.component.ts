@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { CvDataService } from '../services/cv-data-management/cv-data-service.service';
-import { CvDataStructureInterface } from '../services/cv-data-management/cvDataObjectsInterfaces/cv-data-structure-interface.model';
-import { LeftColumnDataInterface } from '../services/cv-data-management/cvDataObjectsInterfaces/left-column-data-interface.model';
+import { CvDataService } from './services/cv-data-service.service';
+import { CvDataStructureInterface } from './services/model/cv-data-structure.model';
+import { LeftColumnDataInterface } from './services/model/left-column-data-interface.model';
 
 @Component({
-  selector: 'app-general-view',
+  selector: 'app-cv-general-view',
   templateUrl: './cv-general-view.component.html',
   styleUrls: ['./cv-general-view.component.sass']
 })
-export class CvGeneralViewComponent implements OnInit {
+export class CvGeneralView implements OnInit {
 
   qualification1 = "laureando in informatica";
   qualification2 = "perito informatico";
@@ -20,7 +20,7 @@ export class CvGeneralViewComponent implements OnInit {
 
   ngOnInit() {
     this.changeQualification();
-    this._getCvDataStructure();
+    this._getCv();
   }
 
   changeQualification(): void {
@@ -38,23 +38,17 @@ export class CvGeneralViewComponent implements OnInit {
 
   }
 
-  private _setCvDataStructure(cvData: CvDataStructureInterface) {
-    this.leftColumnData = cvData.leftColumnData;
-
-  }
-
-  private _getCvDataStructure() {
-
+  private _getCv() {
     this._cvData.getCvDataStructure().subscribe(
       (cvData) => {
-
-        next: this._setCvDataStructure(cvData);
+        next: this._setCvData(cvData);
         error: () => { }
-
       }
-
     )
+  }
 
+  private _setCvData(cvData: CvDataStructureInterface) {
+    this.leftColumnData = cvData.leftColumnData;
   }
 
 }

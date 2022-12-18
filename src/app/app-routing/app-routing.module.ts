@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { CvGeneralViewComponent } from '../curriculum-component/cv-general-view.component';
+import { CurriculumModule } from '../curriculum/cv-curriculum-component.module';
 import { ContactFormComponent } from '../contacts-component/contact-form/contact-form.component';
 
 
 const routes: Routes = [
   {
-    path: "", component: CvGeneralViewComponent, children:
+    path: "", component: CurriculumModule, children:
       [
         { path: "contact-form", component: ContactFormComponent }
       ]

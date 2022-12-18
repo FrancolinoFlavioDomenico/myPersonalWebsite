@@ -15,5 +15,5 @@ export interface InterestSection{
 }
 export interface ContactSection{
   title: string;
-  body: /* {key:string, value: string} */Object[];
+  body: {key: string, value: string}[];
 }

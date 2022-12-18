@@ -1,5 +1,5 @@
 <div class="container column">
-  <ng-container *ngIf="data">
+  <ng-container *ngIf="leftColumn">
     <img
       src="https://png.pngtree.com/png-vector/20190710/ourlarge/pngtree-user-vector-avatar-png-image_1541962.jpg"
       alt=""
@@ -11,8 +11,6 @@
       {{data.profileSection.body}}
     </article>
   </section>
-
-
   <section class="interests">
     <h2>{{data.interestSection.title}}</h2>
     <article>
@@ -21,7 +19,6 @@
       </ul>
     </article>
   </section>
-
   <section class="contacts">
     <h2>{{data.contactSection.title}} </h2>
     <article>
@@ -39,22 +36,19 @@
       <section class="{{ item.key }}">
         <h2>{{ item.value.title }}</h2>
         <article>
-
-          <ng-container *ngIf="!item.isArray, else arrayTemplate ">
-            {{ item.value.body}}
+          <ng-container *ngIf="!item.isArray; else arrayTemplate">
+            {{ item.value.body }}
           </ng-container>
 
           <ng-template #arrayTemplate>
-            <ul >
-              <li  *ngFor="let item of item.value.body | keyvalue">
+            <!-- <ul >
+              <li  *ngFor="let item of item.value. | keyvalue">
 
-                {{item.value | toString}}
+                {{item.key| toString}}
 
               </li>
-            </ul>
+            </ul> -->
           </ng-template>
-
-
         </article>
       </section>
     </ng-container>
@@ -66,7 +60,6 @@
     <ng-container *ngFor="let innerField of field | keyvalue">
       {{innerField.value}}
     </ng-container>
-
   </section>
 </ng-container> -->
 </div>

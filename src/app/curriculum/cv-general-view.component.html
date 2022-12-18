@@ -1,8 +1,7 @@
 <div id="mainDiv" class="column">
   <div class="container row">
     <ng-container *ngIf="leftColumnData">
-
-      <app-left-column [data]="leftColumnData"></app-left-column>
+      <app-left-column [leftColumn]="leftColumnData"></app-left-column>
     </ng-container>
 
     <app-right-column [qualification]="qualification"></app-right-column>

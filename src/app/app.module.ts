@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { CurriculumComponentModule } from './curriculum-component/cv-curriculum-component.module';
-import { ServicesModule } from './services/services.module';
+import { CurriculumModule } from './curriculum/cv-curriculum-component.module';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { ContactsComponentModule } from './contacts-component/contacts-component.module';
 
@@ -15,10 +15,10 @@ import { ContactsComponentModule } from './contacts-component/contacts-component
   ],
   imports: [
     BrowserModule,
-    ServicesModule,
-    CurriculumComponentModule,
+    CurriculumModule,
     AppRoutingModule,
-    ContactsComponentModule
+    ContactsComponentModule,
+    HttpClientModule
   ],
   bootstrap: [AppComponent]
 })
